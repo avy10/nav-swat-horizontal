@@ -6,7 +6,6 @@ import { Box, Typography } from "@mui/material";
 import { IMenuItem } from "../models";
 import styles from "../AppNavigation.module.css";
 import SecondaryNav from "./SecondaryNav";
-import PrimaryNavContainer from "./primary-nav-components/PrimaryNavContainer";
 interface IPrimaryNavTabProps {
 	menuItem: IMenuItem;
 	activeNavTab: string;
@@ -17,10 +16,14 @@ const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
 	activeNavTab,
 	updateActiveNavTab,
 }) => {
-	``;
 	const { path, label, submenu } = menuItem;
 
-	/* 
+	const [showSubMenu, setShowSubMenu] = useState(false);
+	const isActive = activeNavTab === menuItem.path;
+
+	const handleHover = () => setShowSubMenu(true);
+	const handleLeave = () => setShowSubMenu(false);
+
 	const handleKeyPress = (e: KeyboardEvent) => {
 		e.stopPropagation();
 		if (e.key === "Enter" || e.key === " ") {
@@ -28,7 +31,13 @@ const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
 		} else if (e.key === "Escape") {
 			setShowSubMenu(false);
 		}
-	}; */
+	};
+
+	const handleClick = () => {
+		if (path !== "undefined") {
+			updateActiveNavTab(path);
+		}
+	};
 
 	return (
 		<ListItem
@@ -37,32 +46,7 @@ const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
 				width: "fit-content",
 			}}
 		>
-			{path !== undefined ? (
-				<NavLink to={path}>
-					{({ isActive }) => (
-						<PrimaryNavContainer
-							isActive={activeNavTab === label && isActive}
-							label={label}
-							submenu={submenu}
-							// path={path}
-							updateActiveNavTab={updateActiveNavTab}
-						/>
-					)}
-				</NavLink>
-			) : (
-				<PrimaryNavContainer
-					isActive={activeNavTab === label}
-					label={label}
-					submenu={submenu}
-					updateActiveNavTab={updateActiveNavTab}
-				/>
-			)}
-		</ListItem>
-	);
-};
-
-export default PrimaryNavTab;
-/* <Box
+			<Box
 				component="button"
 				className={styles.primaryNavTab}
 				aria-haspopup="true"
@@ -89,8 +73,8 @@ export default PrimaryNavTab;
 					borderLeft: "1px solid rgba(255, 255, 255, 0.4)",
 					cursor: "pointer",
 					"&:hover": {
-						// background: "white",
-          background: "#04284a",
+						/*  // background: "white",
+          background: "#04284a", */
 						// color: "#09436d",
 						color: isActive ? "#09436d" : "white",
 						maxHeight: "72px",
@@ -130,4 +114,9 @@ export default PrimaryNavTab;
 				{showSubMenu && menuItem.submenu && (
 					<SecondaryNav submenu={menuItem.submenu} />
 				)}
-			</Box> */
+			</Box>
+		</ListItem>
+	);
+};
+
+export default PrimaryNavTab;
