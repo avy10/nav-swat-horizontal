@@ -68,8 +68,9 @@ const MenuBox: FC<IMenuProps> = ({
 				anchorEl={anchorEl}
 				open={Boolean(anchorEl)}
 				onClose={menuBoxClose}
-				disablePortal
-				disableScrollLock
+				// disablePortal
+				// disableScrollLock
+				MenuListProps={{ onMouseLeave: menuBoxClose }}
 				anchorOrigin={{
 					vertical: "top",
 					horizontal: "right",
@@ -78,7 +79,6 @@ const MenuBox: FC<IMenuProps> = ({
 					vertical: "top",
 					horizontal: "left",
 				}}
-				MenuListProps={{ onMouseLeave: menuBoxClose }}
 			>
 				{children}
 			</Menu>

@@ -23,7 +23,9 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
 
 	const handleHover = (event: MouseEvent<HTMLElement>) => {
 		setShowLevelTwoMenu(true);
-		setAnchorEl(event.currentTarget);
+		if (event.currentTarget !== anchorEl) {
+			setAnchorEl(event.currentTarget);
+		}
 	};
 	const handleLeave = () => {
 		setShowLevelTwoMenu(false);
