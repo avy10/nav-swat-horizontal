@@ -48,7 +48,7 @@ const SecondaryNav: FC<ISecondaryNavProps> = ({
         position: "absolute",
         maxHeight: "550px",
         overflowY: "auto",
-        // overflowX: "visible",
+        // overflowX: "hidden",
         top: "35px",
         left: "0px",
         // width: "max-content", // works well to adjust the box size according to text length, but makes it difficult to manage the nested menu
@@ -62,8 +62,8 @@ const SecondaryNav: FC<ISecondaryNavProps> = ({
         // maxHeight: "90vh",
 
         "&::-webkit-scrollbar": {
-          height: "1px",
-          width: "1px",
+          height: "3px",
+          width: "3px",
           borderRadius: "25px",
         },
         "&::-webkit-scrollbar-track": {
@@ -80,19 +80,31 @@ const SecondaryNav: FC<ISecondaryNavProps> = ({
         },
       }}
     >
-      {submenu.map((subItem, index) => (
-        <NavLink to={subItem.path} key={subItem.label}>
-          <SecondaryNavTab
-            primaryLabel={primaryLabel}
-            updateActiveNavTab={updateActiveNavTab}
-            subItem={subItem}
-            active={activeIndex === index}
-            handleKeyDown={(e) => handleKeyDown(e)}
-            elementIndex={index}
-            updateShowSubMenu={updateShowSubMenu}
-          />
-        </NavLink>
-      ))}
+      {submenu.map((subItem, index) => {
+        return (
+          <NavLink
+            to={subItem.path !== undefined ? subItem.path : "#"}
+            key={subItem.label}
+            style={{
+              display: "block",
+              width: "218px",
+            }}
+          >
+            <SecondaryNavTab
+              primaryLabel={primaryLabel}
+              updateActiveNavTab={updateActiveNavTab}
+              subItem={subItem}
+              active={activeIndex === index}
+              handleKeyDown={(e) => handleKeyDown(e)}
+              elementIndex={index}
+              updateShowSubMenu={updateShowSubMenu}
+              subItemPath={
+                subItem.path !== undefined ? subItem.path : undefined
+              }
+            />
+          </NavLink>
+        );
+      })}
     </Box>
   );
 };

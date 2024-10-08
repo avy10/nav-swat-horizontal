@@ -17,38 +17,38 @@ const MENU_DATA: IMenuItem[] = [
       {
         label: "Mining Inbox",
         path: "swat/office-inbox/mining",
-        // submenu: [
-        //   {
-        //     label: "Mining Role ",
-        //     path: "swat/office-inbox/mining/role",
-        //   },
-        //   {
-        //     label: "Mining User ",
-        //     path: "swat/office-inbox/mining/user",
-        //   },
-        //   {
-        //     label: "Mining Office User ",
-        //     path: "swat/office-inbox/mining/office-user",
-        //   },
-        // ],
+        submenu: [
+          {
+            label: "Mining Role ",
+            path: "swat/office-inbox/mining/role",
+          },
+          {
+            label: "Mining User ",
+            path: "swat/office-inbox/mining/user",
+          },
+          {
+            label: "Mining Office User ",
+            path: "swat/office-inbox/mining/office-user",
+          },
+        ],
       },
       {
         label: "Oil & Gas Inbox",
         path: "swat/office-inbox/oil-gas",
-        // submenu: [
-        //   {
-        //     label: "Oil & Gas Role Administration",
-        //     path: "swat/office-inbox/oil-gas/role",
-        //   },
-        //   {
-        //     label: "Oil & Gas User Administration",
-        //     path: "swat/office-inbox/oil-gas/user",
-        //   },
-        //   {
-        //     label: "Oil & Gas Office User Administration",
-        //     path: "swat/office-inbox/oil-gas/office-user",
-        //   },
-        // ],
+        submenu: [
+          {
+            label: "Oil & Gas Role Administration",
+            path: "swat/office-inbox/oil-gas/role",
+          },
+          {
+            label: "Oil & Gas User Administration",
+            path: "swat/office-inbox/oil-gas/user",
+          },
+          {
+            label: "Oil & Gas Office User Administration",
+            path: "swat/office-inbox/oil-gas/office-user",
+          },
+        ],
       },
       {
         label: "Consolidated Inbox",
@@ -147,91 +147,91 @@ const MENU_DATA: IMenuItem[] = [
       },
       {
         label: "View User Inbox",
-        path: "",
+        path: "swat/admin/view-user-inbox",
       },
       {
         label: "Term User - Open Tasks",
-        path: "",
+        path: "swat/admin/term-user-open-tasks",
       },
       {
         label: "Update Owner Org",
-        path: "",
+        path: "swat/admin/update-owner-org",
       },
       {
         label: "Task Reassignment",
-        path: "",
+        path: "swat/admin/task-reassign",
       },
       {
         label: "Update DRS/DOS Form Type",
-        path: "",
+        path: "swat/admin/update-forms",
       },
       {
         label: "User By Role",
-        path: "",
+        path: "swat/admin/user-by-role",
       },
       {
         label: "Review Actions",
-        path: "",
+        path: "swat/admin/review-actions",
       },
       {
         label: "Modify SWAT Filing",
-        path: "",
+        path: "swat/admin/modify-filing",
       },
       {
         label: "Modify Review Data",
-        path: "",
+        path: "swat/admin/modify-review-data",
       },
       {
         label: "Manage Designations",
-        path: "",
+        path: "swat/admin/manage-designations",
       },
       {
         label: "Manage Offices",
-        path: "",
+        path: "swat/admin/manage-offices",
       },
       {
         label: "Manage Roles",
-        path: "",
+        path: "swat/admin/manage-roles",
       },
       {
         label: "Modify Review Filing Rel",
-        path: "",
+        path: "swat/admin/modify-review-filing",
       },
       {
         label: "Application Configuration",
-        path: "",
+        path: "swat/admin/app-config",
       },
       {
         label: "Change Owner Branch",
-        path: "",
+        path: "swat/admin/change-owner-branch",
       },
       {
         label: "Checklist Configuration",
-        path: "",
+        path: "swat/admin/checklist-config",
       },
       {
         label: "Monitor Review Rule 418",
-        path: "",
+        path: "swat/admin/monitor-review-rule-418",
       },
       {
         label: "Change CIFR",
-        path: "",
+        path: "swat/admin/change-cifr",
       },
       {
         label: "Manage Menus",
-        path: "",
+        path: "swat/admin/manage-menus",
       },
       {
         label: "Overflow: Route to Other Office",
-        path: "",
+        path: "swat/admin/overflow-rtoo",
       },
       {
         label: "Modify Additional Info",
-        path: "",
+        path: "swat/admin/modify-additional-info",
       },
       {
         label: "Modify Review Round  ",
-        path: "",
+        path: "swat/admin/modify-review-round",
       },
     ],
   },

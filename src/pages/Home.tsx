@@ -2,12 +2,6 @@ import { FC } from "react";
 
 import Container from "@mui/material/Container";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import OfficeSelections from "../components/selection/OfficeSelections";
-
-// import CreatePost from "../components/CreatePost";
-// import MultipleInputDialogBoxStates from "./test/MultipleInputDialogBoxStates";
-// import MultipleInputDialogBoxFormData from "./test/MultipleInputDialogFormData";
-// import PostsList from "../components/PostsList";
 
 const Home: FC = () => {
   return (
@@ -31,7 +25,6 @@ const Home: FC = () => {
           }}
         />
       </p>
-      <OfficeSelections />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illum
         aliquam ratione debitis eveniet sunt quaerat, necessitatibus, eos
@@ -62,10 +55,6 @@ const Home: FC = () => {
         corporis odit delectus nam fugit at praesentium in repudiandae minus
         voluptatibus!
       </p>
-      {/* <CreatePost /> */}
-      {/* <MultipleInputDialogBoxStates /> */}
-      {/* <MultipleInputDialogBoxFormData /> */}
-      {/* <PostsList /> */}
     </Container>
   );
 };

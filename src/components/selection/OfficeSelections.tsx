@@ -66,7 +66,7 @@ const OfficeSelections: React.FC = () => {
       >
         {users.map((singleUserData) => (
           <option value={singleUserData.id} key={singleUserData.id}>
-            {singleUserData.name} {singleUserData.name}
+            {singleUserData.name}
           </option>
         ))}
         {users.map((singleUserData) => (

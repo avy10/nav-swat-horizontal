@@ -15,6 +15,7 @@ interface ISecondaryNavTabProps {
   path?: string;
   primaryLabel: string;
   updateShowSubMenu: (newValue: boolean) => void;
+  subItemPath?: string;
 }
 const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
   subItem,
@@ -24,6 +25,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
   updateActiveNavTab,
   primaryLabel,
   updateShowSubMenu,
+  subItemPath,
 }) => {
   const [showLevelTwoMenu, setShowLevelTwoMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -39,6 +41,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
     setAnchorEl(null);
   };
   const handleClick = () => {
+    if (!subItemPath) return;
     // needed to update the updateActiveNavTab, else it will not have active properties when we visit it's submenu
     if (
       primaryLabel === "Dashboards" ||
@@ -68,7 +71,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
       aria-expanded={showLevelTwoMenu}
       aria-label={`${subItem.label}`}
       onMouseOver={handleHover}
-      onMouseLeave={handleLeave}
+      // onMouseLeave={handleLeave}
       onClick={handleClick}
       //   onKeyDown={handleKeyDown}
       //   onKeyPress={handleKeyPress}
@@ -77,6 +80,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
         background: "#f4f6f9",
         color: "#000000",
         maxHeight: "72px",
+        width: "218px",
       }}
     >
       <Typography
