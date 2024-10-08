@@ -42,9 +42,9 @@ const SecondaryNav: FC<ISecondaryNavProps> = ({ submenu }) => {
 				position: "absolute",
 				maxHeight: "550px",
 				overflowY: "auto",
-				overflowX: "visible",
+				// overflowX: "visible",
 				top: "35px",
-				left: "-11px",
+				left: "0px",
 				// width: "max-content", // works well to adjust the box size according to text length, but makes it difficult to manage the nested menu
 				width: "218px", //makes it easier to control placement of nested menu if I have a fixed value
 
@@ -79,6 +79,7 @@ const SecondaryNav: FC<ISecondaryNavProps> = ({ submenu }) => {
 					subItem={subItem}
 					active={activeIndex === index}
 					handleKeyDown={(e) => handleKeyDown(e)}
+					elementIndex={index}
 				/>
 			))}
 		</Box>

@@ -10,11 +10,13 @@ interface ISecondaryNavTabProps {
 	subItem: ISubMenuItem;
 	active: boolean;
 	handleKeyDown: (e: KeyboardEvent) => void;
+	elementIndex: number;
 }
 const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
 	subItem,
 	active,
 	handleKeyDown,
+	elementIndex,
 }) => {
 	const navigate = useNavigate();
 
@@ -69,12 +71,13 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
 			>
 				{subItem.label}
 			</Typography>
-			{/* {showLevelTwoMenu && subItem.submenu && (
+			{showLevelTwoMenu && subItem.submenu && (
 				<TertiaryNav
 					submenu={subItem.submenu}
 					setShowLevelTwoMenu={setShowLevelTwoMenu}
+					elementIndex={elementIndex}
 				/>
-			)} */}
+			)}
 			{/* {showLevelTwoMenu && subItem.submenu && (
 				<MenuBoxPaper
 					open={showLevelTwoMenu}
@@ -97,7 +100,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
 				</MenuBoxPaper>
 			)} */}
 
-			{showLevelTwoMenu && subItem.submenu && (
+			{/* {showLevelTwoMenu && subItem.submenu && (
 				<MenuBox anchorEl={anchorEl} clearAnchorEl={handleLeave}>
 					{subItem.submenu.map((nestedItem, index) => (
 						<MenuItem
@@ -112,7 +115,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
 						</MenuItem>
 					))}
 				</MenuBox>
-			)}
+			)} */}
 		</Box>
 	);
 };

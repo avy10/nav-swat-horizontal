@@ -6,10 +6,12 @@ import { INestedMenuItem } from "../models";
 interface ITertiaryNavProps {
 	submenu: INestedMenuItem[];
 	setShowLevelTwoMenu: React.Dispatch<React.SetStateAction<boolean>>;
+	elementIndex: number;
 }
 const TertiaryNav: FC<ITertiaryNavProps> = ({
 	submenu,
 	setShowLevelTwoMenu,
+	elementIndex,
 }) => {
 	console.log(submenu);
 	const [activeIndex, setActiveIndex] = useState(-1);
@@ -40,10 +42,10 @@ const TertiaryNav: FC<ITertiaryNavProps> = ({
 			sx={{
 				background: "#f4f6f9",
 				color: "#000000",
-				position: "absolute",
+				position: "fixed",
 				zIndex: 3,
-				top: 0,
-				left: "220px",
+				left: "926px",
+				top: `${36 + elementIndex * 37}px`,
 				width: "max-content",
 				textAlign: "left",
 				boxShadow: "3px 2px 3px 0 #666",
