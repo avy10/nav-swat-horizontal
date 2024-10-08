@@ -1,26 +1,22 @@
-import { useState, KeyboardEvent, FC } from "react";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 
-import { Box, Typography } from "@mui/material";
 import { IMenuItem } from "../models";
-import styles from "../AppNavigation.module.css";
-import SecondaryNav from "./SecondaryNav";
 import PrimaryNavContainer from "./primary-nav-components/PrimaryNavContainer";
 interface IPrimaryNavTabProps {
-	menuItem: IMenuItem;
-	activeNavTab: string;
-	updateActiveNavTab: (path: string) => void;
+  menuItem: IMenuItem;
+  activeNavTab: string;
+  updateActiveNavTab: (path: string) => void;
 }
 const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
-	menuItem,
-	activeNavTab,
-	updateActiveNavTab,
+  menuItem,
+  activeNavTab,
+  updateActiveNavTab,
 }) => {
-	``;
-	const { path, label, submenu } = menuItem;
+  const { path, label, submenu } = menuItem;
 
-	/* 
+  /* 
 	const handleKeyPress = (e: KeyboardEvent) => {
 		e.stopPropagation();
 		if (e.key === "Enter" || e.key === " ") {
@@ -30,35 +26,35 @@ const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
 		}
 	}; */
 
-	return (
-		<ListItem
-			sx={{
-				padding: 0,
-				width: "fit-content",
-			}}
-		>
-			{path !== undefined ? (
-				<NavLink to={path}>
-					{({ isActive }) => (
-						<PrimaryNavContainer
-							isActive={activeNavTab === label && isActive}
-							label={label}
-							submenu={submenu}
-							// path={path}
-							updateActiveNavTab={updateActiveNavTab}
-						/>
-					)}
-				</NavLink>
-			) : (
-				<PrimaryNavContainer
-					isActive={activeNavTab === label}
-					label={label}
-					submenu={submenu}
-					updateActiveNavTab={updateActiveNavTab}
-				/>
-			)}
-		</ListItem>
-	);
+  return (
+    <ListItem
+      sx={{
+        padding: 0,
+        width: "fit-content",
+      }}
+    >
+      {path !== undefined ? (
+        <NavLink to={path}>
+          {({ isActive }) => (
+            <PrimaryNavContainer
+              isActive={activeNavTab === label && isActive}
+              label={label}
+              submenu={submenu}
+              path={path}
+              updateActiveNavTab={updateActiveNavTab}
+            />
+          )}
+        </NavLink>
+      ) : (
+        <PrimaryNavContainer
+          isActive={activeNavTab === label}
+          label={label}
+          submenu={submenu}
+          updateActiveNavTab={updateActiveNavTab}
+        />
+      )}
+    </ListItem>
+  );
 };
 
 export default PrimaryNavTab;

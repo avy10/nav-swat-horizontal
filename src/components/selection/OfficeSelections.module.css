@@ -10,14 +10,65 @@
 .selection select {
   background-color: white;
   color: black;
-  height: 25px;
   width: 195px;
 }
-option {
+.selection option {
   color: black;
   background-color: white;
+  width: 150px;
+  border: 2px solid red;
 }
-.selection .MuiNativeSelect-icon {
+/* .selection .MuiNativeSelect-icon {
   color: white;
   background-color: white;
 }
+.selection option:hover {
+  background-color: #f4f4f4;
+} */
+
+/* 
+<NativeSelect
+        defaultValue={officeIndex}
+        onChange={(e) => setOfficeIndex(Number(e.target.value))}
+        inputProps={{
+          name: "officeName",
+        }}
+        sx={{
+          color: "black",
+          fontSize: "14px",
+          border: "none",
+
+          "& .MuiNativeSelect-select": {
+            padding: "0px",
+          },
+          "& option": {
+            width: "195px",
+            "&:hover": {
+              backgroundColor: "#f4f4f4",
+            },
+          },
+          "& .MuiNativeSelect-select option": {
+            width: "195px",
+            "&:hover": {
+              backgroundColor: "aqua",
+            },
+          },
+        }}
+      >
+        {users.map((singleUserData) => (
+          <option value={singleUserData.id} key={singleUserData.id}>
+            {singleUserData.name} {singleUserData.name}
+          </option>
+        ))}
+        {users.map((singleUserData) => (
+          <option value={singleUserData.id} key={singleUserData.id}>
+            {singleUserData.name}
+          </option>
+        ))}
+        {users.map((singleUserData) => (
+          <option value={singleUserData.id} key={singleUserData.id}>
+            {singleUserData.name}
+          </option>
+        ))}
+      </NativeSelect>
+*/

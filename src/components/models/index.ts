@@ -1,6 +1,6 @@
 export interface INestedMenuItem {
   label: string;
-  path: string;
+  path?: string;
 }
 
 export interface ISubMenuItem {
