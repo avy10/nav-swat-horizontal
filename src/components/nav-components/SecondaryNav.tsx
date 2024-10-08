@@ -45,9 +45,9 @@ const SecondaryNav: FC<ISecondaryNavProps> = ({
       aria-label={`Submenu`}
       // aria-labelledby="submenu"
       sx={{
-        position: "absolute",
-        maxHeight: "550px",
-        overflowY: "auto",
+        position: "absolute", // has to remain absolute else it will resize the PrimaryNavTab to 218px
+        // maxHeight: "550px",
+        // overflowY: "auto",
         // overflowX: "hidden",
         top: "35px",
         left: "0px",

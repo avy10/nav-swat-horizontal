@@ -43,11 +43,12 @@ const TertiaryNav: FC<ITertiaryNavProps> = ({
       sx={{
         background: "#f4f6f9",
         color: "#000000",
-        position: "fixed",
+        position: "absolute",
         zIndex: 3,
-        left: "925px",
+        left: "219px",
 
-        top: `${35 + elementIndex * 37.5}px`,
+        top: `${elementIndex * 3.5}px`,
+        top: "1px",
         width: "max-content",
         textAlign: "left",
         boxShadow: "3px 2px 3px 0 #666",

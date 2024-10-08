@@ -71,7 +71,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
       aria-expanded={showLevelTwoMenu}
       aria-label={`${subItem.label}`}
       onMouseOver={handleHover}
-      // onMouseLeave={handleLeave}
+      onMouseLeave={handleLeave}
       onClick={handleClick}
       //   onKeyDown={handleKeyDown}
       //   onKeyPress={handleKeyPress}
@@ -112,6 +112,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
               <ArrowRightIcon
                 sx={{
                   color: "#09436d",
+                  padding: 0,
                   fontSize: "16px",
                   border: "1px solid red",
                 }}

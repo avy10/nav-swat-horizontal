@@ -35,7 +35,7 @@ const PrimaryNavContainer: FC<IPrimaryNavContainerProps> = ({
   return (
     <Box
       onMouseOver={handleHover}
-      // onMouseLeave={handleLeave}
+      onMouseLeave={handleLeave}
       onClick={handleClick}
       sx={{
         background: isActive
@@ -45,7 +45,7 @@ const PrimaryNavContainer: FC<IPrimaryNavContainerProps> = ({
           : "#09436d",
         color: isActive ? (label === "COOP" ? "#a96701" : "#09436d") : "white",
         height: "35px",
-        position: "relative",
+        // position: "relative",
         borderRight: "1px solid #295b80",
         borderLeft: "1px solid rgba(255, 255, 255, 0.4)",
         cursor: "pointer",
