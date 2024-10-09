@@ -117,12 +117,17 @@ const OfficeSelections: React.FC = () => {
       },
     },
     anchorOrigin: {
-      vertical: "bottom",
-      horizontal: "right",
+      vertical: "bottom" as const,
+      horizontal: "right" as const,
     },
     transformOrigin: {
-      vertical: "top",
-      horizontal: "right",
+      vertical: "top" as const,
+      horizontal: "right" as const,
+      /* 
+      vertical and horizontal properties: These expect specific values, 
+      such as 'top', 'bottom', 'center' (for transformOrigin) or 'left', 'right', 'top', 'bottom' (for anchorOrigin). 
+      We must explicitly cast them using as const to satisfy TypeScript's type checking.
+      */
     },
   };
   return (
