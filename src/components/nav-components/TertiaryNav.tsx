@@ -1,4 +1,12 @@
-import { useState, KeyboardEvent, FC } from "react";
+import {
+  useState,
+  KeyboardEvent,
+  FC,
+  Dispatch,
+  SetStateAction,
+  MutableRefObject,
+  ReactNode,
+} from "react";
 import { NavLink } from "react-router-dom";
 
 import { Box, Typography } from "@mui/material";
@@ -6,15 +14,19 @@ import { Box, Typography } from "@mui/material";
 import { INestedMenuItem } from "../models";
 interface ITertiaryNavProps {
   submenu: INestedMenuItem[];
-  setShowLevelTwoMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowLevelTwoMenu: Dispatch<SetStateAction<boolean>>;
   elementIndex: number;
+  // secondaryNavBoxRef: MutableRefObject<ReactNode>;
 }
 const TertiaryNav: FC<ITertiaryNavProps> = ({
   submenu,
   setShowLevelTwoMenu,
   elementIndex,
+  // secondaryNavBoxRef,
 }) => {
   //   console.log(submenu);
+  // console.log(secondaryNavBoxRef.current);
+  // console.log(secondaryNavBoxRef.current.getBoundingClientRect());
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const handleKeyDown = (e: KeyboardEvent) => {

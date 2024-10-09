@@ -8,13 +8,33 @@ interface IPrimaryNavTabProps {
   menuItem: IMenuItem;
   activeNavTab: string;
   updateActiveNavTab: (path: string) => void;
+  elementPosition: string;
+  primaryUrlPath: string;
 }
+
+const checkNavActive = (
+  primaryUrlPath: string,
+  pathValue: string | undefined,
+  label: string
+) => {
+  if (pathValue !== undefined) {
+    return primaryUrlPath === pathValue;
+  } else {
+    const labelWords = label.split(" ");
+    const labelPath = labelWords.map((word) => word.toLowerCase()).join("-");
+    const labelURL = "swat/" + labelPath;
+    return labelURL === primaryUrlPath;
+  }
+};
 const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
   menuItem,
   activeNavTab,
   updateActiveNavTab,
+  elementPosition,
+  primaryUrlPath,
 }) => {
   const { path, label, submenu } = menuItem;
+  // console.log("hello");
 
   /* 
   // for accessibility
@@ -38,11 +58,13 @@ const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
         {({ isActive }) => (
           <PrimaryNavContainer
             // isActive={isActive} // all the 4 links with undefined becomes active
-            isActive={activeNavTab === label && isActive}
+            // isActive={activeNavTab === label && isActive}
+            isActive={checkNavActive(primaryUrlPath, path, label)}
             label={label}
             submenu={submenu}
             path={path}
             updateActiveNavTab={updateActiveNavTab}
+            elementPosition={elementPosition}
           />
         )}
       </NavLink>

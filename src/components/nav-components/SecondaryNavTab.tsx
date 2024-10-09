@@ -1,4 +1,4 @@
-import { useState, FC, MouseEvent } from "react";
+import { useState, FC, MouseEvent, useRef } from "react";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { Box, Typography } from "@mui/material";
@@ -29,7 +29,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
 }) => {
   const [showLevelTwoMenu, setShowLevelTwoMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
+  // const secondaryNavBox = useRef();
   const handleHover = (event: MouseEvent<HTMLElement>) => {
     setShowLevelTwoMenu(true);
     if (event.currentTarget !== anchorEl) {
@@ -42,7 +42,9 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
   };
   const handleClick = () => {
     if (!subItemPath) return;
-    // needed to update the updateActiveNavTab, else it will not have active properties when we visit it's submenu
+    updateActiveNavTab(subItemPath);
+    updateShowSubMenu(false);
+    /*   // needed to update the updateActiveNavTab, else it will not have active properties when we visit it's submenu
     if (
       primaryLabel === "Dashboards" ||
       primaryLabel === "Admin" ||
@@ -51,7 +53,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
     ) {
       updateActiveNavTab(primaryLabel);
       updateShowSubMenu(false);
-    }
+    } */
   };
 
   /*   const handleKeyPress = (e: KeyboardEvent) => {
@@ -71,7 +73,8 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
       aria-expanded={showLevelTwoMenu}
       aria-label={`${subItem.label}`}
       onMouseOver={handleHover}
-      onMouseLeave={handleLeave}
+      // ref={secondaryNavBox}
+      // onMouseLeave={handleLeave}
       onClick={handleClick}
       //   onKeyDown={handleKeyDown}
       //   onKeyPress={handleKeyPress}
@@ -91,7 +94,8 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
           borderBottom: "1px solid #b5b5b5",
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "flex-start",
+          // alignItems: "flex-start",
+          alignItems: "middle",
           "&:hover": {
             textDecoration: "underline",
           },
@@ -103,18 +107,22 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
             {anchorEl ? (
               <ArrowDropDownIcon
                 sx={{
-                  color: "#09436d",
+                  // color: "#09436d",
+                  color: "white",
                   fontSize: "16px",
-                  border: "1px solid red",
+                  backgroundColor: showLevelTwoMenu ? "#09436d" : "black",
+                  borderRadius: "50%",
                 }}
               />
             ) : (
               <ArrowRightIcon
                 sx={{
-                  color: "#09436d",
+                  // color: "#09436d",
+                  color: "white",
                   padding: 0,
                   fontSize: "16px",
-                  border: "1px solid red",
+                  backgroundColor: showLevelTwoMenu ? "#09436d" : "black",
+                  borderRadius: "50%",
                 }}
               />
             )}
@@ -126,6 +134,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
           submenu={subItem.submenu}
           setShowLevelTwoMenu={setShowLevelTwoMenu}
           elementIndex={elementIndex}
+          // secondaryNavBoxRef={secondaryNavBox}
         />
       )}
       {/* MenuList on Popper */}

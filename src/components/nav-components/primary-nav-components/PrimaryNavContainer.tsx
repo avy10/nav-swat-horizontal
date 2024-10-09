@@ -11,6 +11,7 @@ interface IPrimaryNavContainerProps {
   path?: string;
   updateActiveNavTab: (path: string) => void;
   submenu: ISubMenuItem[] | undefined;
+  elementPosition: string;
 }
 
 const PrimaryNavContainer: FC<IPrimaryNavContainerProps> = ({
@@ -19,6 +20,7 @@ const PrimaryNavContainer: FC<IPrimaryNavContainerProps> = ({
   updateActiveNavTab,
   submenu,
   path = undefined,
+  elementPosition,
 }) => {
   const [showSubMenu, setShowSubMenu] = useState(false);
   function updateShowSubMenu(newValue: boolean) {
@@ -28,14 +30,14 @@ const PrimaryNavContainer: FC<IPrimaryNavContainerProps> = ({
   const handleLeave = () => updateShowSubMenu(false);
   const handleClick = () => {
     if (path !== undefined) {
-      updateActiveNavTab(label);
+      updateActiveNavTab(label); // current
       updateShowSubMenu(false);
     }
   };
   return (
     <Box
       onMouseOver={handleHover}
-      onMouseLeave={handleLeave}
+      // onMouseLeave={handleLeave}
       onClick={handleClick}
       sx={{
         background: isActive
@@ -48,6 +50,7 @@ const PrimaryNavContainer: FC<IPrimaryNavContainerProps> = ({
         // position: "relative",
         borderRight: "1px solid #295b80",
         borderLeft: "1px solid rgba(255, 255, 255, 0.4)",
+
         cursor: "pointer",
         "&:hover": {
           color: isActive

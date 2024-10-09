@@ -17,38 +17,24 @@ const MENU_DATA: IMenuItem[] = [
       {
         label: "Mining Inbox",
         path: "swat/office-inbox/mining",
-        submenu: [
+        /* submenu: [
           {
             label: "Mining Role ",
-            path: "swat/office-inbox/mining/role",
+            path: "swat/office-inbox/mining-role",
           },
           {
             label: "Mining User ",
-            path: "swat/office-inbox/mining/user",
+            path: "swat/office-inbox/mining-user",
           },
           {
             label: "Mining Office User ",
-            path: "swat/office-inbox/mining/office-user",
+            path: "swat/office-inbox/mining-office-user",
           },
-        ],
+        ], */
       },
       {
         label: "Oil & Gas Inbox",
         path: "swat/office-inbox/oil-gas",
-        submenu: [
-          {
-            label: "Oil & Gas Role Administration",
-            path: "swat/office-inbox/oil-gas/role",
-          },
-          {
-            label: "Oil & Gas User Administration",
-            path: "swat/office-inbox/oil-gas/user",
-          },
-          {
-            label: "Oil & Gas Office User Administration",
-            path: "swat/office-inbox/oil-gas/office-user",
-          },
-        ],
       },
       {
         label: "Consolidated Inbox",
@@ -97,8 +83,8 @@ const MENU_DATA: IMenuItem[] = [
     ],
   },
   {
-    label: "Notifications",
-    path: "swat/notifications",
+    label: "Notification",
+    path: "swat/notification",
     // submenu: [],
   },
   {
@@ -117,19 +103,19 @@ const MENU_DATA: IMenuItem[] = [
     submenu: [
       {
         label: "Administration",
-        path: undefined,
+        path: undefined, // empty string would take you to the home page
         submenu: [
           {
             label: "Role Administration",
-            path: "swat/role-admin",
+            path: "swat/admin/administration-role-admin",
           },
           {
             label: "User Administration",
-            path: "swat/user-admin",
+            path: "swat/admin/administration-user-admin",
           },
           {
             label: "Office User Administration",
-            path: "swat/office-user-admin",
+            path: "swat/admin/administration-office-user-admin",
           },
         ],
       },
@@ -137,12 +123,15 @@ const MENU_DATA: IMenuItem[] = [
         label: "Effect",
         path: undefined,
         submenu: [
-          { label: "Effectiveness Queue", path: "swat/queue" },
+          { label: "Effectiveness Queue", path: "swat/admin/effect-queue" },
           {
             label: "Effectiveness Transmitted",
-            path: "swat/transmitted",
+            path: "swat/admin/effect/transmitted",
           },
-          { label: "PAC Effect / Qualify", path: "pac-quality" },
+          {
+            label: "PAC Effect / Qualify",
+            path: "swat/admin/effect-pac-quality",
+          },
         ],
       },
       {
@@ -241,43 +230,43 @@ const MENU_DATA: IMenuItem[] = [
     submenu: [
       {
         label: "Create New Document",
-        path: "",
+        path: "swat/support/create-new-doc",
       },
       {
         label: "Update Document",
-        path: "",
+        path: "swat/support/update-doc",
       },
       {
         label: "Add New Company",
-        path: "",
+        path: "swat/support/add-company",
       },
       {
         label: "Add New Letter Template",
-        path: "",
+        path: "swat/support/add-letter-template",
       },
       {
         label: "Update Letter Template",
-        path: "",
+        path: "swat/support/update-letter-template",
       },
       {
         label: "Email Requests and History",
-        path: "",
+        path: "swat/support/email-request-history",
       },
       {
         label: "SWAT Dynamic Labels",
-        path: "",
+        path: "swat/support/dynamic-labels",
       },
       {
         label: "Manage SWAT LOVs",
-        path: "",
+        path: "swat/support/manage-lovs",
       },
       {
         label: "Screening Dynamic Fields",
-        path: "",
+        path: "swat/support/",
       },
       {
         label: "SEC Holidays",
-        path: "",
+        path: "swat/support/",
       },
     ],
   },
@@ -287,7 +276,7 @@ const MENU_DATA: IMenuItem[] = [
     submenu: [
       {
         label: "Dashboard Export",
-        path: "",
+        path: "swat/reports/dashboard-export",
       },
     ],
   },
