@@ -7,6 +7,16 @@
   column-gap: 5px;
   color: white;
 }
+
+/* .selection {
+  height: min-content;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  column-gap: 5px;
+  color: white;
+}
 .selection select {
   background-color: white;
   color: black;
@@ -17,7 +27,7 @@
   background-color: white;
   width: 150px;
   border: 2px solid red;
-}
+} */
 /* .selection .MuiNativeSelect-icon {
   color: white;
   background-color: white;

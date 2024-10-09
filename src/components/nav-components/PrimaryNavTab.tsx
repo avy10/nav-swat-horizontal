@@ -37,8 +37,8 @@ const PrimaryNavTab: FC<IPrimaryNavTabProps> = ({
       <NavLink to={path !== undefined ? path : "#"}>
         {({ isActive }) => (
           <PrimaryNavContainer
-            isActive={isActive} // all the 4 links with undefined becomes active
-            // isActive={activeNavTab === label && isActive}
+            // isActive={isActive} // all the 4 links with undefined becomes active
+            isActive={activeNavTab === label && isActive}
             label={label}
             submenu={submenu}
             path={path}
