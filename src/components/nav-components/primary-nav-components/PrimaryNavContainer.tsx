@@ -37,7 +37,7 @@ const PrimaryNavContainer: FC<IPrimaryNavContainerProps> = ({
   return (
     <Box
       onMouseOver={handleHover}
-      // onMouseLeave={handleLeave}
+      onMouseLeave={handleLeave}
       onClick={handleClick}
       sx={{
         background: isActive

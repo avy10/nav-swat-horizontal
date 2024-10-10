@@ -29,7 +29,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
 }) => {
   const [showLevelTwoMenu, setShowLevelTwoMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  // const secondaryNavBox = useRef();
+  const secondaryNavBox = useRef();
   const handleHover = (event: MouseEvent<HTMLElement>) => {
     setShowLevelTwoMenu(true);
     if (event.currentTarget !== anchorEl) {
@@ -73,8 +73,8 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
       aria-expanded={showLevelTwoMenu}
       aria-label={`${subItem.label}`}
       onMouseOver={handleHover}
-      // ref={secondaryNavBox}
-      // onMouseLeave={handleLeave}
+      ref={secondaryNavBox}
+      onMouseLeave={handleLeave}
       onClick={handleClick}
       //   onKeyDown={handleKeyDown}
       //   onKeyPress={handleKeyPress}
@@ -134,7 +134,7 @@ const SecondaryNavTab: FC<ISecondaryNavTabProps> = ({
           submenu={subItem.submenu}
           setShowLevelTwoMenu={setShowLevelTwoMenu}
           elementIndex={elementIndex}
-          // secondaryNavBoxRef={secondaryNavBox}
+          secondaryNavBoxRef={secondaryNavBox}
         />
       )}
       {/* MenuList on Popper */}

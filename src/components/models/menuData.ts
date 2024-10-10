@@ -17,7 +17,7 @@ const MENU_DATA: IMenuItem[] = [
       {
         label: "Mining Inbox",
         path: "swat/office-inbox/mining",
-        /* submenu: [
+        submenu: [
           {
             label: "Mining Role ",
             path: "swat/office-inbox/mining-role",
@@ -30,7 +30,7 @@ const MENU_DATA: IMenuItem[] = [
             label: "Mining Office User ",
             path: "swat/office-inbox/mining-office-user",
           },
-        ], */
+        ],
       },
       {
         label: "Oil & Gas Inbox",

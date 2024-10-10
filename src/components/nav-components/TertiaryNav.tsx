@@ -5,29 +5,37 @@ import {
   Dispatch,
   SetStateAction,
   MutableRefObject,
-  ReactNode,
 } from "react";
 import { NavLink } from "react-router-dom";
 
 import { Box, Typography } from "@mui/material";
 
 import { INestedMenuItem } from "../models";
+
 interface ITertiaryNavProps {
   submenu: INestedMenuItem[];
   setShowLevelTwoMenu: Dispatch<SetStateAction<boolean>>;
   elementIndex: number;
-  // secondaryNavBoxRef: MutableRefObject<ReactNode>;
+  secondaryNavBoxRef: MutableRefObject<HTMLElement | null>; // updated type
 }
+
 const TertiaryNav: FC<ITertiaryNavProps> = ({
   submenu,
   setShowLevelTwoMenu,
   elementIndex,
-  // secondaryNavBoxRef,
+  secondaryNavBoxRef,
 }) => {
-  //   console.log(submenu);
-  // console.log(secondaryNavBoxRef.current);
-  // console.log(secondaryNavBoxRef.current.getBoundingClientRect());
   const [activeIndex, setActiveIndex] = useState(-1);
+
+  if (secondaryNavBoxRef.current) {
+    console.log(secondaryNavBoxRef.current);
+    console.log(secondaryNavBoxRef.current.getBoundingClientRect());
+  }
+
+  // const { right, top } = secondaryNavBoxRef?.current?.getBoundingClientRect();
+  const rect = secondaryNavBoxRef.current?.getBoundingClientRect();
+  const rightParent = rect?.right ?? 0;
+  const topParent = rect?.top ?? 0;
 
   const handleKeyDown = (e: KeyboardEvent) => {
     const totalItems = submenu.length;
@@ -55,19 +63,20 @@ const TertiaryNav: FC<ITertiaryNavProps> = ({
       sx={{
         background: "#f4f6f9",
         color: "#000000",
-        position: "absolute",
-        zIndex: 3,
-        left: "219px",
-
-        top: `${elementIndex * 3.5}px`,
+        /* position: "absolute",
         top: "1px",
+        left: "219px", */
+        zIndex: 3,
+        position: "fixed",
+        top: `${topParent}px`,
+        left: `${rightParent}px`,
         width: "max-content",
         textAlign: "left",
         boxShadow: "3px 2px 3px 0 #666",
       }}
     >
       {submenu.map((nestedItem, index) => (
-        <NavLink to={nestedItem.path} key={nestedItem.label}>
+        <NavLink to={nestedItem.path !== undefined ? nestedItem.path : "#"}>
           <Typography
             key={`${nestedItem.label}-${index}`}
             role="menuitem"
